@@ -1,0 +1,136 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Member page</title>
+    <script language="javascript">
+        function nums() {
+            var num;
+            num= event.keyCode;
+            if (num>=48 && num<=57) {
+                event.keyCode=num;
+                return true;
+            }
+            else{
+                event.keyCode=0;
+                return false;
+            }    
+        }
+
+        function abcd() {
+            var abc;
+            abc= event.keyCode;
+            if((abc>=65 && abc<=90)||(abc>=97 && abc<=122)|| abc==32){
+                event.keyCode=abc;
+                return true;
+            }
+            else{
+                event.keyCode=0;    
+                return false;
+            } 
+        }
+        
+        function adhar() {
+                var ad;
+            ad= event.keyCode;
+            if (ad>=48 && ad<=57||ad==32) {
+                event.keyCode=ad;
+                return true;
+            }
+            else{
+                event.keyCode=0;
+                return false;
+            }   
+        }
+
+    </script>
+</head>
+<body>
+    <form name="member" action="member.php" method="post">
+        <center>
+            <table>
+                <Caption>Members Information</Caption>
+                <tr>
+                    <td>Member's Id:</td>
+                    <td><input type="text" name="mem_id" onkeypress="return nums()" id="" ><?php echo $err1; ?></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" onkeypress="return abcd()" id=""><?php echo $err2; ?></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input type="text" name="addr" id=""> <?php echo $err3; ?></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" name="city" id="" onkeypress="return abcd()"><?php echo $err4; ?></td>
+                </tr>
+                <tr>
+                    <td>Contact No:</td>
+                    <td><input type="number" name="cont_no" id="" ><?php echo $err5; ?></td>
+                </tr>
+                <tr>
+                    <td>Alt Contact No:</td>
+                    <td><input type="number" name="altcont_no" id="" ><?php echo $err6; ?></td>
+                </tr>
+                <tr>
+                    <td>Email ID:</td>
+                    <td><input type="email" name="email_id" id=""><?php echo $err7; ?></td>
+                </tr>
+                <tr>
+                    <td>Aadhar card No:</td>
+                    <td><input type="text" name="aadhar" onkeypress="return adhar()" maxlength="14" id=""><?php echo $err8; ?></td>
+                </tr>
+                <tr>
+                    <td>PAN no:</td>
+                    <td><input type="text" name="pan" id=""><?php echo $err9; ?></td>
+                </tr>
+                <tr>
+                    <td>Chit No:</td>
+                    <td><input type="number" name="chit_no" id=""><?php echo $err10; ?></td>
+                </tr>
+                <tr>
+                    <td>Mem date:</td>
+                    <td><input type="date" name="mem_date" id=""><?php echo $err11; ?></td>
+                </tr>
+                <tr>
+                    <td>Chit amt Paid:</td>
+                    <td><input type="number" name="ch_amt_paid" id=""><?php echo $err12; ?></td>
+                </tr>
+                <tr>
+                    <td>Chit total amt:</td>
+                    <td><input type="number" name="ch_tot_amt" id=""><?php echo $err13; ?></td>
+                </tr>
+                <tr>
+                    <td>Chit balance amt:</td>
+                    <td><input type="number" name="Ch_bal_amt" id=""><?php echo $err14; ?></td>
+                </tr>
+                <tr>
+                    <td>No of Installment:</td>
+                    <td><input type="number" name="no_of_intl" id=""><?php echo $err15; ?></td>
+                </tr>
+                <tr>
+                    <td>Fees:</td>
+                    <td><input type="number" name="fees" id=""><?php echo $err16; ?></td>
+                </tr>
+                <tr>
+                    <td>Status:</td>
+                    <td><input type="text" name="status" onkeypress="return abcd ()" id=""><?php echo $err17; ?></td>
+                </tr>
+            </table>
+            
+            <input type="submit" name="sbm" value="Submit">
+            <input type="submit" name="sbm" value="Update">
+            <input type="submit" name="sbm" value="Delete">
+            <input type="submit" name="sbm" value="Search">
+            <input type="submit" name="sbm" value="Display">
+    </center>
+    </form>
+
+</body>
+</html>
+

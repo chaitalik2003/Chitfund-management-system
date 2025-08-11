@@ -1,0 +1,81 @@
+<!-- This text is in comment section... i have aslo attechated he javascript validations and php empty box error msg 
+so now you just need to create database and connect it throught php... 
+
+from -
+your buddy (Divya) -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Installment page</title>
+    <script language="javascript">
+        function nums() {
+            var num;
+            num= event.keyCode;
+            if (num>=48 && num<=57) {
+                event.keyCode=num;
+                return true;
+            }
+            else{
+                event.keyCode=0;
+                return false;
+            }    
+        }
+
+        function abcd() {
+            var abc;
+            abc= event.keyCode;
+            if((abc>=65 && abc<=90)||(abc>=97 && abc<=122)|| abc==32){
+                event.keyCode=abc;
+                return true;
+            }
+            else{
+                event.keyCode=0;    
+                return false;
+            } 
+        }
+
+    </script>
+</head>
+<body>
+    <form name="Installment" action="installment.php" method="post">
+        <center>
+            <table>
+                <Caption>Installment Information</Caption>
+                <tr>
+                    <td>Installment Id:</td>
+                    <td><input type="text" name="i_id" onkeypress="return nums()" id="" ><?php echo $err1; ?></td>
+                </tr>
+                <tr>
+                    <td>Installment Date:</td>
+                    <td><input type="date" name="i_date"  id=""><?php echo $err2; ?></td>
+                </tr>
+                <tr>
+                    <td>Member Id:</td>
+                    <td><input type="number" name="mem_id" onkeypress="return nums()" id=""> <?php echo $err3; ?></td>
+                </tr>
+                <tr>
+                    <td>Chit No:</td>
+                    <td><input type="number" name="chit_no" id=""><?php echo $err4; ?></td>
+                </tr>
+                <tr>
+                    <td>Chit amt Paid:</td>
+                    <td><input type="number" name="ch_amt_paid" id=""><?php echo $err5; ?></td>
+                </tr>
+                
+            </table>
+            
+            <input type="submit" name="sbm" value="Submit">
+            <input type="submit" name="sbm" value="Update">
+            <input type="submit" name="sbm" value="Delete">
+            <input type="submit" name="sbm" value="Search">
+            <input type="submit" name="sbm" value="Display">
+    </center>
+    </form>
+
+</body>
+</html>
+

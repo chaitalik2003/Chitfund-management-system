@@ -1,0 +1,47 @@
+<html>
+<h2><center>Login page</center></h2>
+<body>
+<form>
+<center>
+<table>
+<tr>
+<td>UserId:</td>
+<td><input type="text" name=ui></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="text" name=ps></td>
+<tr>
+<td><input type="submit" name=sbm value="LOGIN"></td>
+<td><p>New User? </p></td>
+</tr>
+</table>
+</form>
+</center>
+</body>
+</html>
+<?php
+if(isset($_POST['sbm']))
+{
+if($_POST['ui']=="admin" && $_POST['ps']=="admin")
+{
+header("location:http://localhost/project/index1.html");
+}
+else
+{
+$cn=mysql_connect("localhost","root");
+mysql_select_db("chitfund",$cn);
+$ui=$_POST['ui'];
+$ps=$_POST['ps'];
+$sql=select count(*) from user where user_id='$ui' and password='$ps'";
+$result=mysql_query($sql,$cn);
+$row=mysql_fetch_array($result);
+if($row[0]>0)
+{
+session_start();
+$_SESSION['userid']=$_POST['ui'];
+header("location:http://localhost/project/index.html");
+}
+}
+}
+?>

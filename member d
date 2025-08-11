@@ -1,0 +1,99 @@
+<?php
+$connects= mysql_connect("localhost", "root");
+
+    mysql_select_db("WFDP",$connects);
+    if(isset($_POST['sbm']))
+    {
+        $sb= $_POST['sbm'];
+        if ($sb=="Submit") 
+        {
+            if($fl==0)
+            {
+                 
+                $sql ="insert into giver values('$_POST[givid]', '$_POST[name]', '$_POST[addr]', 
+                        '$_POST[city]','$_POST[cont_no]','$_POST[email_id]', '$_POST[password]','$_POST[occupation]')";
+                mysql_query($sql, $connects);
+                echo "data stored...";
+            }
+
+        }
+        
+        else if($sb=="Update")
+        {
+            $sql="update giver set name='$_POST[name]', addr='$_POST[addr]',city='$_POST[city]', cont_no ='$_POST[cont_no]', 
+            email_id='$_POST[email_id]', password='$_POST[password]', occupation='$_POST[occupation]' where givid='$_POST[givid]'";
+            mysql_query($sql, $connects);
+            echo "data updated..";
+        }
+        else if($sb=="Delete")
+        {
+            $sql= "delete from giver where givid='$_POST[givid]'";
+            mysql_query($sql,$connects);
+            echo "Records deleted...";
+        }
+        else if($sb=="Search")
+        {
+            echo "<center><table border=1>";
+            echo "<caption>Giver Information</caption>";
+            echo "<tr>";
+                echo "<th>Givid:</th>";
+            echo "<th>Name:</th>";
+            echo "<th>Address:</th>";
+            echo "<th>City:</th>";
+            echo "<th>Contact:</th>";
+            echo "<th>Email Id::</th>";
+            echo "<th>Password:</th>";
+            echo "<th>Occupation:</th>";
+            echo "</tr>";
+            $sql="select * from giver where givid= '$_POST[givid]'";
+            $result= mysql_query($sql, $connects);
+            while ($row=mysql_fetch_array($result)) 
+            {
+                echo "<tr>";
+                echo "<td>$row[0]</td>";
+                echo "<td>$row[1]</td>";
+                echo "<td>$row[2]</td>";
+                echo "<td>$row[3]</td>";
+                echo "<td>$row[4]</td>";
+                echo "<td>$row[5]</td>";
+                echo "<td>$row[6]</td>";
+                echo "<td>$row[7]</td>";
+                echo "</tr>";
+            }
+            echo "</table> </center>"; 
+           
+        }
+        else if($sb=="Display")
+        {
+            echo "<center><table border=1>";
+            echo "<caption>Giver Information</caption>";
+            echo "<tr>";
+            echo "<th>Givid:</th>";
+            echo "<th>Name:</th>";
+            echo "<th>Address:</th>";
+            echo "<th>City:</th>";
+            echo "<th>Contact:</th>";
+            echo "<th>Email Id::</th>";
+            echo "<th>Password:</th>";
+            echo "<th>Occupation:</th>";
+            echo "</tr>";
+            $sql="select * from giver";
+            $result= mysql_query($sql, $connects);
+            while ($row=mysql_fetch_array($result)) 
+            {
+                echo "<tr>";
+                echo "<td>$row[0]</td>";
+                echo "<td>$row[1]</td>";
+                echo "<td>$row[2]</td>";
+                echo "<td>$row[3]</td>";
+                echo "<td>$row[4]</td>";
+                echo "<td>$row[5]</td>";
+                echo "<td>$row[6]</td>";
+                echo "<td>$row[7]</td>";
+                echo "</tr>";
+            }
+            echo "</table> </center>";
+       }
+    }
+       
+?>          

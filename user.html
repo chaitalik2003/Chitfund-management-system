@@ -1,0 +1,54 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User page</title>
+    <script language="javascript">
+        
+
+    </script>
+</head>
+<body>
+    <form name="User" action="user.php" method="post">
+        <center>
+            <table>
+                <Caption>User</Caption>
+                <tr>
+                    <td>User Id:</td>
+                    <td><input type="number" name="user_id" id="" ><?php echo $err1; ?></td>
+                </tr>
+                <tr>
+                    <td>User Name:</td>
+                    <td><input type="text" name="user_name"  id=""><?php echo $err2; ?></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="text" name="password" id=""><?php echo $err3; ?></td>
+                </tr>
+                <tr>
+                    <td>Email Id:</td>
+                    <td><input type="email" name="email_id" id=""><?php echo $err4; ?></td>
+                </tr>
+                <tr>
+                    <td>Contact No:</td>
+                    <td><input type="number" name="cont_no" id=""><?php echo $err5; ?></td>
+                </tr>
+                
+                
+            </table>
+            
+            <input type="submit" name="sbm" value="Submit">
+            <input type="submit" name="sbm" value="Update">
+            <input type="submit" name="sbm" value="Delete">
+            <input type="submit" name="sbm" value="Search">
+            <input type="submit" name="sbm" value="Display">
+    </center>
+    </form>
+
+</body>
+</html>
+
+
+

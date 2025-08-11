@@ -1,0 +1,15 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.annotation.webservlet;
+import javax.servlet.http.*;
+import javax.sql.*;
+
+public class ParticipantServlet extends HttpServlet {
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws Servletexception , IoException {
+String name = request.getParameter('name)
+String Participantclass = request.getParameter('Participantclass')
+String gender = request.getparameter('gender')
+String activity = request.getParameter('activity')
+
+connection conn = Null
+PreparedStatement pstmt = Null 
